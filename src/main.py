@@ -16,6 +16,22 @@ def get_names_from_file(file_name :str) -> List[str]:
                 pure_names_list.append(pure_name)
     return pure_names_list
 
+
+def is_cyrillic(name_item: str) -> bool:
+    """Проверка на вхождение кириллицы в стоку"""
+    return bool(re.search('[а-яА-я]', name_item))
+
+
+def filter_russian_names(names_list: str) -> list:
+    """Фильтрация русских имен"""
+    russian_names_list = []
+    for name_item in names_list:
+        if is_cyrillic(name_item):
+            russian_names_list.append(name_item)
+    return russian_names_list
+
 names_list = get_names_from_file('names.txt')
-for name in names_list:
+russian_names = filter_russin_names(names_list)
+
+for name in russian_names:
     print(name)

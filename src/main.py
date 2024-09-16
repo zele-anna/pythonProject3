@@ -13,7 +13,7 @@ def get_names_from_file(file_name :str) -> List[str]:
                 if symbol.isalpha():
                     pure_name += symbol
             if pure_name.isalpha():
-                pure_names_list.append(cleared_name)
+                pure_names_list.append(pure_name)
     return pure_names_list
 
 names_list = get_names_from_file('names.txt')
